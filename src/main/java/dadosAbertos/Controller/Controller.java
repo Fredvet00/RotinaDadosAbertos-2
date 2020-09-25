@@ -24,11 +24,11 @@ public class Controller {
 
 	
 	 Service service = new Service();
-	@Scheduled(fixedDelayString = "200000")
+	@Scheduled(fixedDelayString = "20000")
 	
 	public  void executarChecagem() throws IOException {
 		
-	//	service.checarStatusHttp(urlApi,endpoints);
+	service.checarStatusHttp(urlApi,endpoints);
 		
 	}
 
