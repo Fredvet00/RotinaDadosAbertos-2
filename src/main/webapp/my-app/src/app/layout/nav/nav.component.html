@@ -1,0 +1,28 @@
+<mat-drawer-container class="container">
+  <mat-drawer #drawer class="sidenav" mode="side" opened fixedInVewport="true" fixedTopGap="64">
+    <div class="button-group">
+  <div>
+    <button mat-raised-button color="primary" (click)="mostrarConteudo = !mostrarConteudo">
+      <mat-icon>assignment</mat-icon> Endpoints
+    </button>
+  </div>
+  <div>
+    <button mat-raised-button color="primary" (click)="mostrarConteudo = !mostrarConteudo">
+      <mat-icon>http</mat-icon> Base Url
+    </button>
+
+  </div>
+    </div>
+
+  </mat-drawer>
+
+  <div class="sidenav-content">
+    <button type="button" mat-button (click)="drawer.toggle()" color="primary">
+      <mat-icon>menu</mat-icon>
+    </button>
+  </div>
+  <div class= "main-content">
+    <router-outlet class="content"></router-outlet>
+  </div>
+
+</mat-drawer-container>

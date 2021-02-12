@@ -1,0 +1,29 @@
+<div class="main-container">
+  <p>
+    <mat-toolbar >
+      <span>Faça uma simples requisição</span>
+    </mat-toolbar>
+  </p>
+
+  <div class="input-container">
+    <mat-form-field hintLabel=" http://www.google.com" appearance="fill">
+      <mat-label>Entre com a url base</mat-label>
+      <input matInput #input placeholder="Ex. Nougat">
+    </mat-form-field>
+
+    <mat-form-field hintLabel="/foeendpoint" appearance="fill">
+    <mat-label>entre com o endpoint</mat-label>
+    <input matInput #input maxlength="10" placeholder="Ex. Nougat">
+  </mat-form-field>
+
+  <button mat-raised-button title="Fazer requisição">
+    <mat-icon>send</mat-icon>
+  </button>
+  </div>
+
+</div>
+
+
+
+
+

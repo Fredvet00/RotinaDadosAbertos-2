@@ -1,0 +1,23 @@
+.container{
+  width: fit-content;
+  height:32rem;
+}
+.button-group{
+  flex-direction: column;
+  align-content: flex-start;
+
+
+}
+.button-group div{
+  padding: 0.1rem;
+
+}
+.main-content{
+  background-color:white;
+  width:80rem;
+  height: 28rem;
+
+}
+
+
+
