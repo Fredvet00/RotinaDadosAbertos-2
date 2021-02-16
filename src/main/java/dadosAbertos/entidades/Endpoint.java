@@ -1,25 +1,25 @@
 package dadosAbertos.entidades;
 
 
-import javax.persistence.*;
+import org.springframework.transaction.annotation.Transactional;
 
+import javax.persistence.*;
+@Transactional
 @Entity
 @Table (name="endpoint")
-public class EndPoint {
+public class Endpoint {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "id_sequence")
+    @SequenceGenerator(name="id_sequence",sequenceName ="ID_SEQ")
     private Long id;
 
     @Column(name = "endpoint_value")
     private String endpoint;
 
-
-
-    public EndPoint() {
-
+    public Endpoint() {
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 

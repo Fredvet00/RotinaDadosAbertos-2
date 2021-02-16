@@ -1,37 +1,37 @@
 package dadosAbertos.web.rest;
 
-import dadosAbertos.entidades.EndPoint;
-import dadosAbertos.repository.EndpointRepository;
+import dadosAbertos.DAO.EndpointDAO;
+import dadosAbertos.entidades.Endpoint;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+@RestController
 @RequestMapping("/api")
 public class EndPointRestController {
+
     @Autowired
-    private final EndpointRepository endpointRepository;
-
-    public EndPointRestController(EndpointRepository endpointRepository) {
-
-        this.endpointRepository = endpointRepository;
-    }
+    private EndpointDAO endpointDAO;
 
 
-    @PostMapping("/endpoint")
-    public ResponseEntity<EndPoint> persistirEndpoint(@RequestBody EndPoint endpoint) throws Exception {
+    @GetMapping("/endpoints")
+    public ResponseEntity<List<Endpoint>> listarEndpoints() throws Exception {
         try {
-            System.out.println("Persistindo endpoint no banco: {}" + endpoint);
-            EndPoint endpointSave = endpointRepository.save(endpoint);
-            return new ResponseEntity<>(endpointSave, HttpStatus.OK);
+            List<Endpoint> endPoint = endpointDAO.listarEndpoints();
+            System.out.println("Persistindo endpoint no banco: {}" + endPoint);
+
+            return new ResponseEntity<>(endPoint, HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
     }
+
+  /*
     @PostMapping("/endpoints")
     public ResponseEntity<List> persistirEndpoints(@RequestBody List<EndPoint> endpointList) throws Exception {
         try {
@@ -42,8 +42,11 @@ public class EndPointRestController {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
     }
-
-
+*/
+    @GetMapping("/test")
+    public void teste(){
+        System.out.println("Certo");
+    }
 
 
 }

@@ -1,8 +1,6 @@
-package dadosAbertos.Service;
+package dadosAbertos.service;
 
 import java.io.IOException;
-
-import org.springframework.beans.factory.annotation.Value;
 
 import dadosAbertos.utils.DadosAbertosConnection;
 import dadosAbertos.utils.JavaMailApp;

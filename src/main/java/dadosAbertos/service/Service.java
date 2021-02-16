@@ -1,4 +1,4 @@
-package dadosAbertos.Service;
+package dadosAbertos.service;
 
 import java.io.IOException;
 
