@@ -1,8 +1,7 @@
 package dadosAbertos.web.rest;
 
-import dadosAbertos.DAO.EndpointDAO;
 import dadosAbertos.entidades.Endpoint;
-import org.springframework.beans.factory.annotation.Autowired;
+import dadosAbertos.service.EndpointService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,14 +14,18 @@ import java.util.List;
 @RequestMapping("/api")
 public class EndPointRestController {
 
-    @Autowired
-    private EndpointDAO endpointDAO;
+
+    private EndpointService endpointService;
+
+    public EndPointRestController(EndpointService endpointService) {
+        this.endpointService = endpointService;
+    }
 
 
     @GetMapping("/endpoints")
     public ResponseEntity<List<Endpoint>> listarEndpoints() throws Exception {
         try {
-            List<Endpoint> endPoint = endpointDAO.listarEndpoints();
+            List<Endpoint> endPoint = endpointService.endpoints();
             System.out.println("Persistindo endpoint no banco: {}" + endPoint);
 
             return new ResponseEntity<>(endPoint, HttpStatus.OK);
@@ -45,7 +48,7 @@ public class EndPointRestController {
 */
     @GetMapping("/test")
     public void teste(){
-        System.out.println("Certo");
+        System.out.println(endpointService.endpoints());
     }
 
 
